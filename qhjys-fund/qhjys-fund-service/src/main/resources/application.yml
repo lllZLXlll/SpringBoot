@@ -1,0 +1,59 @@
+server:
+  port: 8080
+  servlet-path: /
+
+spring:
+  application:
+    name: qhjys-fund-service
+  datasource:
+    name: qhjys-fund
+    url: jdbc:mysql://121.201.67.236:3306/qhjys-fund?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true
+    username: root
+    password: ENC(qcAmJuIqx+DB3mEbWmzfEffgAaB9/pXv)
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+  redis:
+    host: 121.201.67.236
+    password: ENC(XcPToVX0p5CP3SIc+rW5szgsuWV+0Cn2XaG4Q8dfPx4=)
+    port: 6379
+    timeout: 5000
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+
+mybatis:
+  mapper-locations: classpath:com/qhjys/fund/service/mapper/*.xml
+  type-aliases-package: com.qhjys.fund.entity
+  configuration:
+    map-underscore-to-camel-case: true
+  #config-location: classpath:mybatis-config.xml
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+qhjys:
+  rmi:
+    host: localhost
+    port: 1111
+
+jasypt:
+  encryptor:
+    password: YoaiPtXJ3Vj
