@@ -1,8 +1,0 @@
-server:
-  port: 8082
-  servlet-path: /
-
-qhjys:
-  rmi:
-    host: localhost
-    port: 1111
